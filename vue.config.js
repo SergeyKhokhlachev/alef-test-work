@@ -8,6 +8,13 @@ module.exports = defineConfig({
     for (const aliasName in aliasObj) {
       config.resolve.alias.set(aliasName, aliasObj[aliasName]);
     }
+    config.module
+      .rule("vue")
+      .use("vue-svg-inline-loader")
+      .loader("vue-svg-inline-loader")
+      .options({
+        /* ... */
+      });
   },
   pluginOptions: {
     "style-resources-loader": {
