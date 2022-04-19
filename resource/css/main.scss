@@ -1,0 +1,17 @@
+@import "src/normalize.scss";
+@import "src/reset.scss";
+
+@import "font.scss";
+@import "variable.scss";
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
