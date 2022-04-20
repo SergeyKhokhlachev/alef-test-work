@@ -76,8 +76,8 @@ export default {
       background-color: #000000;
     }
     &[disabled] {
-      color: $text-prime;
-      background-color: #c4c4c4;
+      color: #c4c4c4;
+      background-color: inherit;
       border: 1px solid #c4c4c4;
       cursor: default;
     }
