@@ -1,9 +1,9 @@
 <template>
-  <div class="page-wrap">
-    <header-base></header-base>
+  <header-base></header-base>
+  <div class="page-content">
     <router-view />
-    <footer-base></footer-base>
   </div>
+  <footer-base></footer-base>
 </template>
 
 <script>
@@ -18,4 +18,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.page-content {
+  padding: 24px 0 46px;
+}
+</style>

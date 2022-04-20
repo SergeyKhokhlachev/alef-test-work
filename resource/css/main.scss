@@ -16,11 +16,20 @@
   box-sizing: border-box;
 }
 
+svg {
+  &:active,
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+}
+
 body {
   color: $text-prime;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 400;
+  line-height: 1.43;
 }
 
 .container {
@@ -38,4 +47,19 @@ body {
   line-height: 1.5;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.base-link {
+  color: #333333;
+  line-height: 1.43;
+  letter-spacing: 0.04em;
+  text-decoration-line: underline;
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: $color-prime;
+  }
+  &:focus,
+  &:active {
+    color: $color-prime-active;
+  }
 }

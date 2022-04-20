@@ -6,86 +6,24 @@
       </router-link>
     </div>
     <div class="card-list__block">
-      <div class="card-style card-style--lg">
-        <img class="card-style__img" src="@img/temp/card-1.png" alt="photo" />
-        <div class="card-style__layer">
-          <div class="card-style__clipboard">
-            <img svg-inline src="@img/icons/clipboard.svg" alt="icon" />
-          </div>
-          <div class="card-style__like">
-            <img svg-inline src="@img/icons/like.svg" alt="icon" />
-            <span>200</span>
-          </div>
-          <div class="card-style__content">
-            <img svg-inline src="@img/icons/cart_full.svg" alt="icon" />
-            <p class="card-style__text">Узнай, что на мне</p>
-          </div>
-        </div>
-      </div>
-      <div class="card-style">
-        <img class="card-style__img" src="@img/temp/card-2.png" alt="photo" />
-        <div class="card-style__layer">
-          <div class="card-style__clipboard">
-            <img svg-inline src="@img/icons/clipboard.svg" alt="icon" />
-          </div>
-          <div class="card-style__like">
-            <img svg-inline src="@img/icons/like.svg" alt="icon" />
-            <span>200</span>
-          </div>
-          <div class="card-style__content">
-            <img svg-inline src="@img/icons/cart_full.svg" alt="icon" />
-            <p class="card-style__text">Узнай, что на мне</p>
+      <template v-for="(item, index) in cardList" :key="index">
+        <div :class="['card-style', { 'card-style--lg': index === 0 }]">
+          <img class="card-style__img" :src="item.img" alt="photo" />
+          <div class="card-style__layer">
+            <div class="card-style__clipboard">
+              <img svg-inline src="@img/icons/clipboard.svg" alt="icon" />
+            </div>
+            <div class="card-style__like">
+              <img svg-inline src="@img/icons/like.svg" alt="icon" />
+              <span>200</span>
+            </div>
+            <div class="card-style__content">
+              <img svg-inline src="@img/icons/cart_full.svg" alt="icon" />
+              <p class="card-style__text">Узнай, что на мне</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="card-style">
-        <img class="card-style__img" src="@img/temp/card-3.png" alt="photo" />
-        <div class="card-style__layer">
-          <div class="card-style__clipboard">
-            <img svg-inline src="@img/icons/clipboard.svg" alt="icon" />
-          </div>
-          <div class="card-style__like">
-            <img svg-inline src="@img/icons/like.svg" alt="icon" />
-            <span>200</span>
-          </div>
-          <div class="card-style__content">
-            <img svg-inline src="@img/icons/cart_full.svg" alt="icon" />
-            <p class="card-style__text">Узнай, что на мне</p>
-          </div>
-        </div>
-      </div>
-      <div class="card-style">
-        <img class="card-style__img" src="@img/temp/card-4.png" alt="photo" />
-        <div class="card-style__layer">
-          <div class="card-style__clipboard">
-            <img svg-inline src="@img/icons/clipboard.svg" alt="icon" />
-          </div>
-          <div class="card-style__like">
-            <img svg-inline src="@img/icons/like.svg" alt="icon" />
-            <span>200</span>
-          </div>
-          <div class="card-style__content">
-            <img svg-inline src="@img/icons/cart_full.svg" alt="icon" />
-            <p class="card-style__text">Узнай, что на мне</p>
-          </div>
-        </div>
-      </div>
-      <div class="card-style">
-        <img class="card-style__img" src="@img/temp/card-5.png" alt="photo" />
-        <div class="card-style__layer">
-          <div class="card-style__clipboard">
-            <img svg-inline src="@img/icons/clipboard.svg" alt="icon" />
-          </div>
-          <div class="card-style__like">
-            <img svg-inline src="@img/icons/like.svg" alt="icon" />
-            <span>200</span>
-          </div>
-          <div class="card-style__content">
-            <img svg-inline src="@img/icons/cart_full.svg" alt="icon" />
-            <p class="card-style__text">Узнай, что на мне</p>
-          </div>
-        </div>
-      </div>
+      </template>
     </div>
   </div>
 </template>
@@ -93,12 +31,33 @@
 <script>
 export default {
   name: "CardList",
+  data() {
+    return {
+      cardList: [
+        {
+          img: require("@img/temp/card-1.png"),
+        },
+        {
+          img: require("@img/temp/card-2.png"),
+        },
+        {
+          img: require("@img/temp/card-3.png"),
+        },
+        {
+          img: require("@img/temp/card-4.png"),
+        },
+        {
+          img: require("@img/temp/card-5.png"),
+        },
+      ],
+    };
+  },
 };
 </script>
 
 <style scoped lang="scss">
 .card-list {
-  margin-bottom: 70px;
+  margin-bottom: 24px;
   .card-list__head {
     margin-bottom: 24px;
     text-align: center;
@@ -168,12 +127,14 @@ export default {
         &:focus-visible {
           outline: none;
         }
+        g {
+          transition: fill 0.2s ease-in-out;
+        }
       }
       &:hover {
         svg {
           g {
             fill: $color-prime;
-            transition: fill 0.2s ease-in-out;
           }
         }
       }

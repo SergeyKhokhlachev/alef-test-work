@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.26 9.1"><defs><style>.cls-1{fill:#333;}</style></defs><title>Ресурс 1</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_1-2" data-name="Слой 1"><polygon class="cls-1" points="6.87 9.1 0 0.65 0.78 0.01 6.9 7.55 13.51 0 14.26 0.66 6.87 9.1"/></g></g></svg>
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+	<title>angle-down</title>
+	<g>
+		<polygon fill="#333" points="6.87 9.1 0 0.65 0.78 0.01 6.9 7.55 13.51 0 14.26 0.66 6.87 9.1"/>
+	</g>
+</svg>
