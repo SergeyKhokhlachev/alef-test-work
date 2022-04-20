@@ -1,4 +1,7 @@
 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.700012 9.06641L9.05007 0.88337" stroke="#C4C4C4"/>
-<path d="M9.25165 9.06641L0.901606 0.883353" stroke="#C4C4C4"/>
+	<title>clear</title>
+	<g>
+		<rect fill="#c4c4c4" x="-1.32" y="3.95" width="11.69" height="1" transform="translate(-1.82 4.44) rotate(-44.41)"/>
+		<rect fill="#c4c4c4" x="4.23" y="-1.4" width="1" height="11.69" transform="translate(-1.76 4.71) rotate(-45.58)"/>
+	</g>
 </svg>

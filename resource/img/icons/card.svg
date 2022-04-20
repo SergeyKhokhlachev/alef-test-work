@@ -1,4 +1,7 @@
 <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="13" height="9" rx="0.5" stroke="#333333"/>
-<rect x="1" y="3" width="12" height="2" fill="#333333"/>
+	<title>card</title>
+	<g>
+		<path fill="#333" d="M13,10H1A1,1,0,0,1,0,9V1A1,1,0,0,1,1,0H13a1,1,0,0,1,1,1V9A1,1,0,0,1,13,10ZM1,1V9H13V1ZM1,.5V1H1Z"/>
+		<rect fill="#333" x="1" y="3" width="12" height="2"/>
+	</g>
 </svg>
