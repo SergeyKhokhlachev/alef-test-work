@@ -24,6 +24,14 @@ svg {
   }
 }
 
+textarea,
+input[type="text"],
+input[type="button"],
+input[type="submit"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
 body {
   color: $text-prime;
   font-family: 'Open Sans', sans-serif;
@@ -32,11 +40,26 @@ body {
   line-height: 1.43;
 }
 
+
 .container {
   width: 100%;
-  max-width: 1420px;
   margin: 0 auto;
   padding: 0 15px;
+  @include respond(sm) {
+    max-width: 540px;
+  }
+  @include respond(md) {
+    max-width: 720px;
+  }
+  @include respond(lg) {
+    max-width: 960px;
+  }
+  @include respond(xl) {
+    max-width: 1140px;
+  }
+  @include respond(xxl) {
+    max-width: 1410px;
+  }
 }
 
 .title-md {

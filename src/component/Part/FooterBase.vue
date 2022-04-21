@@ -70,20 +70,56 @@ export default {
 
 <style scoped lang="scss">
 .footer {
-  padding: 70px 0;
+  padding: 42px 0 70px;
+  @include respond(lg) {
+    padding: 70px 0;
+  }
   .footer__wrap {
-    display: flex;
-    justify-content: space-between;
+    max-width: 1144px;
+    margin: 0 auto;
+    padding: 0 5px;
+    @include respond(sm) {
+      padding: 0;
+    }
+    @include respond(md) {
+      display: flex;
+      justify-content: space-between;
+    }
   }
   .footer__control {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 320px;
+    max-width: 260px;
+    @include respond(sm) {
+      max-width: 320px;
+    }
+    @include respond(md) {
+      max-width: 250px;
+    }
+    @include respond(lg) {
+      max-width: 340px;
+    }
+    @include respond(xl) {
+      max-width: 440px;
+    }
   }
   .footer__form {
+    width: 100%;
+    @include respond(md) {
+      max-width: 380px;
+    }
+    @include respond(lg) {
+      max-width: 420px;
+    }
+    @include respond(xl) {
+      max-width: 452px;
+    }
     .form-subscribe {
-      margin-top: 40px;
+      margin-top: 19px;
+      @include respond(lg) {
+        margin-top: 37px;
+      }
     }
   }
 }

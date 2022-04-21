@@ -45,6 +45,12 @@
                   {{ size }}
                 </option>
               </select>
+              <img
+                svg-inline
+                class="form-control__arrow"
+                src="@img/icons/angle-down.svg"
+                alt="icon"
+              />
             </label>
           </div>
           <router-link to="/" class="base-link">Определить размер</router-link>
@@ -55,26 +61,32 @@
               <button
                 class="product-bl__change"
                 type="button"
-                :disabled="order.counter <= 1"
-                @click="counterLess"
+                @click="counterMore"
               >
-                <img svg-inline src="@img/icons/minus.svg" alt="icon" />
+                <img svg-inline src="@img/icons/plus.svg" alt="icon" />
               </button>
               <div class="product-bl__counter">{{ order.counter }}</div>
               <button
                 class="product-bl__change"
                 type="button"
-                @click="counterMore"
+                :disabled="order.counter <= 1"
+                @click="counterLess"
               >
-                <img svg-inline src="@img/icons/plus.svg" alt="icon" />
+                <img svg-inline src="@img/icons/minus.svg" alt="icon" />
               </button>
             </div>
-            <button class="product-bl__btn product-bl__btn--lg" type="button">
-              Добавить в корзину
-            </button>
-            <button class="product-bl__btn" type="button">
-              <img svg-inline src="@img/icons/favorit.svg" alt="icon" />
-            </button>
+            <div class="product-bl__gp">
+              <button
+                class="product-bl__btn product-bl__btn--lg"
+                type="button"
+                @click="addCart"
+              >
+                Добавить в корзину
+              </button>
+              <button class="product-bl__btn" type="button" @click="addFavorit">
+                <img svg-inline src="@img/icons/favorit.svg" alt="icon" />
+              </button>
+            </div>
           </div>
           <router-link to="/" class="base-link">Купить в 1 клик</router-link>
         </div>
@@ -144,24 +156,48 @@ export default {
     counterLess() {
       this.order.counter--;
     },
+    addCart() {
+      this.$notify({
+        type: "warn",
+        title: `Товар ${this.order.name} в количестве ${this.order.counter} единиц добавлен в корзину`,
+      });
+    },
+    addFavorit() {
+      this.$notify({
+        type: "warn",
+        title: `Товар ${this.order.name} в количестве ${this.order.counter} единиц добавлен в избранное`,
+      });
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
 .card-product {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px 16px;
-  margin-bottom: 32px;
+  margin-bottom: 21px;
+  @include respond(lg) {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 10px;
+    margin-bottom: 32px;
+  }
   .card-product__content {
-    padding: 24px 28px;
+    padding: 24px 5px;
+    @include respond(sm) {
+      padding: 24px 0;
+    }
+    @include respond(lg) {
+      padding: 23px 14px;
+    }
+    @include respond(xxl) {
+      padding: 23px 28px;
+    }
     &:last-child {
       border-top: 1px solid #c4c4c4;
     }
     .card-product__head {
-      margin-bottom: 18px;
+      margin-bottom: 15px;
       .card-product__title {
         margin-bottom: 8px;
         font-weight: 600;
@@ -197,7 +233,7 @@ export default {
     align-items: center;
     margin-right: 5px;
     .rating-ell {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1;
       &:before {
         content: "\2606";
@@ -313,15 +349,28 @@ export default {
 .size-bl {
   margin-bottom: 40px;
   .form-control {
+    position: relative;
+    max-width: 315px;
     margin-bottom: 12px;
     .form-control__select {
       width: 100%;
-      max-width: 313px;
       height: 44px;
-      padding: 12px 16px;
+      padding: 12px 26px 12px 16px;
       letter-spacing: 0.04em;
+      background-color: #ffffff;
       border: 1px solid #333333;
+      border-radius: 0;
+      outline: none;
       cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      appearance: none !important;
+    }
+    .form-control__arrow {
+      position: absolute;
+      right: 10px;
+      top: 18px;
     }
   }
 }
@@ -329,14 +378,21 @@ export default {
 .product-bl {
   margin-bottom: 5px;
   .product-bl__box {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
+    @include respond(sm) {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
   }
   .product-bl__add {
     display: flex;
     align-items: center;
-    margin-right: 12px;
+    margin-bottom: 15px;
+    @include respond(sm) {
+      margin-bottom: 0;
+      margin-right: 12px;
+    }
     .product-bl__change {
       display: flex;
       align-items: center;
@@ -383,6 +439,10 @@ export default {
       height: 44px;
       background-color: #f2f2f2;
     }
+  }
+  .product-bl__gp {
+    display: flex;
+    align-items: center;
   }
   .product-bl__btn {
     display: flex;

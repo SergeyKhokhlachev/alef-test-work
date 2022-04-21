@@ -57,10 +57,16 @@ export default {
 
 <style scoped lang="scss">
 .card-list {
-  margin-bottom: 24px;
+  margin: 0 -15px;
+  @include respond(sm) {
+    margin: 0 0 24px;
+  }
   .card-list__head {
-    margin-bottom: 24px;
+    margin-bottom: 58px;
     text-align: center;
+    @include respond(lg) {
+      margin-bottom: 32px;
+    }
   }
   .card-list__all {
     color: $text-prime;
@@ -79,17 +85,21 @@ export default {
   }
   .card-list__block {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 16px 16px;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 8px;
+    @include respond(lg) {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 16px 16px;
+    }
     .card-style {
-      height: 336px;
       &.card-style--lg {
         grid-row-start: 1;
         grid-column-start: 1;
         grid-row-end: 3;
         grid-column-end: 3;
-        height: 100%;
       }
     }
   }

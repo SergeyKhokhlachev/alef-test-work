@@ -4,6 +4,7 @@
     <router-view />
   </div>
   <footer-base></footer-base>
+  <notifications />
 </template>
 
 <script>
@@ -20,6 +21,8 @@ export default {
 
 <style lang="scss">
 .page-content {
-  padding: 24px 0 46px;
+  @include respond(sm) {
+    padding: 26px 0 46px;
+  }
 }
 </style>

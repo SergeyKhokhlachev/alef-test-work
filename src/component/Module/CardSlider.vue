@@ -40,9 +40,22 @@ export default {
 <style scoped lang="scss">
 .card-slider {
   position: relative;
+  margin: 0 -15px;
+  @include respond(sm) {
+    margin: 0;
+  }
   .card-slider__view {
     width: 100%;
-    height: 878px;
+    height: 480px;
+    @include respond(sm) {
+      height: 620px;
+    }
+    @include respond(lg) {
+      height: 680px;
+    }
+    @include respond(xxl) {
+      height: 878px;
+    }
     img {
       object-fit: cover;
       width: 100%;
@@ -51,16 +64,26 @@ export default {
   }
   .card-slider__toolbar {
     position: absolute;
-    top: 24px;
+    top: 28px;
     left: 24px;
   }
   .card-slider__preview {
-    width: 70px;
-    height: 91px;
-    margin-bottom: 7px;
+    width: 40px;
+    height: 52px;
+    margin-bottom: 4px;
     opacity: 0.6;
     cursor: pointer;
     transition: opacity 0.2s ease-in-out;
+    @include respond(sm) {
+      width: 50px;
+      height: 64px;
+      margin-bottom: 6px;
+    }
+    @include respond(xxl) {
+      width: 70px;
+      height: 91px;
+      margin-bottom: 7px;
+    }
     &:hover,
     &.active {
       opacity: 1;

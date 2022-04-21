@@ -57,7 +57,7 @@ export default {
     justify-content: center;
     min-width: 150px;
     min-height: 36px;
-    margin-top: 35px;
+    margin-top: 25px;
     padding: 6px 14px;
     font-size: 14px;
     line-height: 1.43;
@@ -66,6 +66,9 @@ export default {
     border: 1px solid #333333;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    @include respond(lg) {
+      margin-top: 35px;
+    }
     &:hover {
       color: #ffffff;
       background-color: #333333;
@@ -88,13 +91,14 @@ export default {
   width: 100%;
   .form-control__input {
     width: 100%;
-    padding: 12px 25px;
+    padding: 12px 25px 12px 16px;
     font-size: 14px;
     border: none;
     border-bottom: 1px solid #c4c4c4;
     transition: all 0.2s ease-in-out;
     &::placeholder {
       color: $text-sub;
+      letter-spacing: 0.04em;
     }
     &:focus {
       outline: none;

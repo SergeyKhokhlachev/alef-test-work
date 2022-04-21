@@ -3,3 +3,21 @@ $text-sub: #828282;
 
 $color-prime: #f4511e;
 $color-prime-active: #bf360c;
+
+@mixin respond($breakpoint) {
+  @if($breakpoint == xxl)  {
+    @media (min-width: 1460px) { @content }
+  }
+  @if($breakpoint == xl)  {
+    @media (min-width: 1200px) { @content }
+  }
+  @if($breakpoint == lg)  {
+    @media (min-width: 992px) { @content }
+  }
+  @if($breakpoint == md)  {
+    @media (min-width: 768px) { @content }
+  }
+  @if($breakpoint == sm)  {
+    @media (min-width: 576px) { @content }
+  }
+}
