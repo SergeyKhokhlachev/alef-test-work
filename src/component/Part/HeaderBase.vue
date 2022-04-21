@@ -23,7 +23,7 @@
                 </span>
               </li>
             </ul>
-            <nav-header></nav-header>
+            <nav-header :headerShown="isShown"></nav-header>
           </div>
         </div>
       </div>
@@ -49,8 +49,6 @@ export default {
     // eslint-disable-next-line no-unused-vars
     handleScroll(event) {
       let scrollCur = document.body.getBoundingClientRect().top;
-      console.log("scrollCur: " + scrollCur);
-      console.log("scrollPos: " + this.scrollPos);
       if (scrollCur > this.scrollPos) {
         if (scrollCur > this.scrollPos + 200 || scrollCur < 200) {
           this.isShown = true;

@@ -22,6 +22,7 @@
 <script>
 export default {
   name: "NavHeader",
+  props: ["headerShown"],
   data() {
     return {
       isActive: false,
@@ -50,12 +51,20 @@ export default {
       this.isActive = !this.isActive;
     },
   },
+  watch: {
+    headerShown: function (val) {
+      if (val === false) this.isActive = false;
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
 .nav-header {
   margin-left: 30px;
+  @include respond(md) {
+    display: none;
+  }
   .nav-header__btn {
     position: relative;
     width: 18px;
